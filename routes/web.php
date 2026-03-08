@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth'], function(){
                 Route::get('setting/{user_id}/admin', [CalendarsController::class, 'reserveSettings'])->name('calendar.admin.setting');
                 Route::post('setting/update/admin', [CalendarsController::class, 'updateSettings'])->name('calendar.admin.update');
             });
+
         });
         Route::namespace('BulletinBoard')->group(function(){
             Route::get('bulletin_board/posts/{keyword?}', [PostsController::class, 'show'])->name('post.show');
