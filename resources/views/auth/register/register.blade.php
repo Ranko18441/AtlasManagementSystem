@@ -73,6 +73,11 @@
           @error('old_year')
           <div class="error"><span>{{ $message }}</span></div>
           @enderror
+
+          @error('birthday')
+          <div class="error"><span>{{ $message }}</span></div>
+          @enderror
+          
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
             <option value="none">-----</option>
