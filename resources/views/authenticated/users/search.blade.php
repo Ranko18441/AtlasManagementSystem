@@ -46,6 +46,12 @@
         <span>選択科目 :</span>
         @endif
       </div>
+      <!-- 下記に選択科目の表示のコードを記載済み -->
+       <div>
+        @foreach($user->subjects as $subject)
+        <span>{{ $subject->subject }}</span>
+        @endforeach
+      </div>
     </div>
     @endforeach
   </div>
