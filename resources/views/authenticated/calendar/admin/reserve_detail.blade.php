@@ -4,32 +4,20 @@
     <p><span>日</span><span class="ml-3">部</span></p>
     <div class="h-75 border">
       <table class="">
-        @foreach($reservePersons as $reservePerson)
         <tr class="text-center">
           <th class="w-25">ID</th>
-        <td>
-        @foreach($reservePerson->users as $user)
-        {{ $user->id }}
-        @endforeach
-         </td>
+          <th class="w-25">名前</th>
+          <th class="w-25">場所</th>
         </tr>
-        @endforeach
-        
-
         @foreach($reservePersons as $reservePerson)
+        @foreach($reservePerson->users as $user)
         <tr class="text-center">
-        <th class="w-25">名前</th>
-        <td>
-          @foreach($reservePerson->users as $user)
-          {{ $user->over_name }} {{ $user->under_name }}
-          @endforeach
-        </td>
-      </tr>
-      @endforeach
-        <tr class="text-center">
-          <td class="w-25">場所</td>
-          <td class="w-25">リモート</td>
+          <td>{{ $user->id }}</td>
+          <td>{{ $user->over_name }} {{ $user->under_name }}</td>
+          <td>リモート</td>
         </tr>
+        @endforeach
+      @endforeach
       </table>
     </div>
   </div>
