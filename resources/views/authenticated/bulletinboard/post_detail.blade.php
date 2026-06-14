@@ -8,10 +8,21 @@
           </div>
           <div>
             <!-- 下記記述で自分以外は編集できないようにif文をつけた -->
+              @error('post_title')
+              <div class="error"><span>{{ $message }}</span></div>
+              @enderror
+              @error('post_body')
+              <div class="error"><span>{{ $message }}</span></div>
+              @enderror
+              
             @if (Auth::id() === $post->user_id)
             <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
             <a href="#" class="delete-modal-open" post_id="{{ $post->id }}">削除</a>
             @endif
+
+            <!-- 下にバリデーションのerrorを出すためのものを記述 -->
+   
+
           </div>
         </div>
 
@@ -55,33 +66,22 @@
   </div>
 </div>
 
-@if ($errors->any())
-<script>
-$(function () {
-    $('.js-modal').fadeIn();
-});
-</script>
-@endif
 
 <div class="modal js-modal">
   <div class="modal__bg js-modal-close"></div>
   <div class="modal__content">
+   
+
+  
     <form action="{{ route('post.edit') }}" method="post">
       <div class="w-100">
-         <!-- 下にバリデーションのerrorを出すためのものを記述 -->
          <div class="modal-inner-title w-50 m-auto">
            <input type="text" name="post_title" placeholder="タイトル" class="w-100">
           </div>
-        @error('post_title')
-        <div class="error"><span>{{ $message }}</span></div>
-        @enderror
 
          <div class="modal-inner-body w-50 m-auto pt-3 pb-3">
            <textarea placeholder="投稿内容" name="post_body" class="w-100"></textarea>
           </div>
-        @error('post_body')
-        <div class="error"><span>{{ $message }}</span></div>
-        @enderror
 
         <div class="w-50 m-auto edit-modal-btn d-flex">
           <a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>
