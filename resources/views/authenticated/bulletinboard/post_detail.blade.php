@@ -10,7 +10,7 @@
             <!-- 下記記述で自分以外は編集できないようにif文をつけた -->
             @if (Auth::id() === $post->user_id)
             <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
-            <a href="{{ route('post.delete', ['id' => $post->id]) }}">削除</a>
+            <a href="#" class="delete-modal-open" post_id="{{ $post->id }}">削除</a>
             @endif
           </div>
         </div>
@@ -54,17 +54,35 @@
     </div>
   </div>
 </div>
+
+@if ($errors->any())
+<script>
+$(function () {
+    $('.js-modal').fadeIn();
+});
+</script>
+@endif
+
 <div class="modal js-modal">
   <div class="modal__bg js-modal-close"></div>
   <div class="modal__content">
     <form action="{{ route('post.edit') }}" method="post">
       <div class="w-100">
-        <div class="modal-inner-title w-50 m-auto">
-          <input type="text" name="post_title" placeholder="タイトル" class="w-100">
-        </div>
-        <div class="modal-inner-body w-50 m-auto pt-3 pb-3">
-          <textarea placeholder="投稿内容" name="post_body" class="w-100"></textarea>
-        </div>
+         <!-- 下にバリデーションのerrorを出すためのものを記述 -->
+         <div class="modal-inner-title w-50 m-auto">
+           <input type="text" name="post_title" placeholder="タイトル" class="w-100">
+          </div>
+        @error('post_title')
+        <div class="error"><span>{{ $message }}</span></div>
+        @enderror
+
+         <div class="modal-inner-body w-50 m-auto pt-3 pb-3">
+           <textarea placeholder="投稿内容" name="post_body" class="w-100"></textarea>
+          </div>
+        @error('post_body')
+        <div class="error"><span>{{ $message }}</span></div>
+        @enderror
+
         <div class="w-50 m-auto edit-modal-btn d-flex">
           <a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>
           <input type="hidden" class="edit-modal-hidden" name="post_id" value="">
@@ -75,4 +93,19 @@
     </form>
   </div>
 </div>
+
+<!-- 下に削除モーダルのボタンを作成 -->
+ <div class="modal js-delete-modal">
+  <div class="modal__content">
+    <p>この投稿を削除します。よろしいですか？</p>
+    <div class="w-50 m-auto d-flex">
+      <form action="{{ route('post.delete', ['id' => $post->id]) }}" method="GET">
+        <button type="submit">OK</button>
+      </form>
+      <button type="button" class="delete-modal-close">キャンセル</button>
+        </div>
+    </div>
+  </div>
+</div>
+
 </x-sidebar>

@@ -63,4 +63,17 @@ $(function () {
     return false;
   });
 
+// 下記に削除用のモーダルの表示も作成した
+  $('.delete-modal-open').on('click',function(){
+    $('.js-delete-modal').fadeIn();
+    return false;
+  });
+  $('.delete-modal-close').on('click', function () {
+    $('.js-delete-modal').fadeOut();
+    return false;
+  });
+
+
+
+
 });
