@@ -58,6 +58,13 @@
       <div class="comment_area p-3">
         <p class="m-0">コメントする</p>
         <textarea class="w-100" name="comment" form="commentRequest"></textarea>
+        <!-- 下記にコメントを記載した時のバリデーションエラーの表示を記載した -->
+           @error('comment')
+           <div class="error">
+            <span>{{ $message }}</span>
+           </div>
+          @enderror
+          
         <input type="hidden" name="post_id" form="commentRequest" value="{{ $post->id }}">
         <input type="submit" class="btn btn-primary" form="commentRequest" value="投稿">
         <form action="{{ route('comment.create') }}" method="post" id="commentRequest">{{ csrf_field() }}</form>
