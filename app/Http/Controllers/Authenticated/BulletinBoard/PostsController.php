@@ -13,6 +13,8 @@ use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use Auth;
 use App\Http\Requests\BulletinBoard\CommentFormRequest;
+use App\Http\Requests\SubCategoryRequest;
+use App\Http\Requests\MainCategoryRequest;
 
 class PostsController extends Controller
 {
@@ -45,7 +47,7 @@ class PostsController extends Controller
     }
 
     public function postInput(){
-        $main_categories = MainCategory::get();
+        $main_categories = MainCategory::with('subCategories')->get();
         return view('authenticated.bulletinboard.post_create', compact('main_categories'));
     }
 
@@ -70,8 +72,14 @@ class PostsController extends Controller
         Post::findOrFail($id)->delete();
         return redirect()->route('post.show');
     }
-    public function mainCategoryCreate(Request $request){
+    public function mainCategoryCreate(MainCategoryRequest  $request){
         MainCategory::create(['main_category' => $request->main_category_name]);
+        return redirect()->route('post.input');
+    }
+
+    // サブカテゴリーの登録機能を作るためにメソッドを追加
+    public function subCategoryCreate(SubCategoryRequest $request){
+        SubCategory::create(['main_category_id' => $request->main_category_id,'sub_category' => $request->sub_category_name,]);
         return redirect()->route('post.input');
     }
 
