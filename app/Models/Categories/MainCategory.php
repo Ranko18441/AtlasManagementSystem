@@ -12,6 +12,7 @@ class MainCategory extends Model
         'main_category'
     ];
 
+    // ↓はメインカテゴリーが一つ　その中の複数のサブカテゴリーだから多対多となる
     public function subCategories(){
         // リレーションの定義
         return $this->hasMany(SubCategory::class);

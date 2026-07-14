@@ -42,7 +42,7 @@
       <div class="">
         <!-- 下にバリデーションのerrorを出すためのものを記述 -->
               @error('main_category_name')
-              <div class="error"><span>{{ $message }}</span></div>
+              <div class="error"><span style="color: red;">{{ $message }}</span></div>
               @enderror
         <p class="m-0">メインカテゴリー</p>
         <input type="text" class="w-100" name="main_category_name" form="mainCategoryRequest">
@@ -52,12 +52,12 @@
       <div class="">
         <!-- 下にバリデーションのerrorを出すためのものを記述 -->
               @error('main_category_id')
-              <div class="error"><span>{{ $message }}</span></div>
+              <div class="error" ><span style="color: red;">{{ $message }}</span></div>
               @enderror
 
         <!-- 下にバリデーションのerrorを出すためのものを記述 -->
               @error('sub_category_name')
-              <div class="error"><span>{{ $message }}</span></div>
+              <div class="error"><span style="color: red;">{{ $message }}</span></div>
               @enderror
         <p class="m-0">サブカテゴリー</p>
         
