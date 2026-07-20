@@ -95,6 +95,14 @@
           </div>
           <div class="selected_engineer">
             <label>選択科目</label>
+            <select name="subject_id">
+              <option selected disabled>----</option>
+              @foreach($subjects as $subject)
+              <option value="{{ $subject->id }}">
+                {{ $subject->subject }}
+              </option>
+              @endforeach
+            </select>
           </div>
         </div>
       </div>
