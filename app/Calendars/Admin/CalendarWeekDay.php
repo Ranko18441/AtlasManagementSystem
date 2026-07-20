@@ -34,19 +34,19 @@ class CalendarWeekDay{
       $html[] = '<p class="day_part m-0 pt-1"><a href="'.route('calendar.admin.detail', [
     'date' => $ymd,
     'part' => 1
-]).'">1部</p>';
+]).'">1部 '.$one_part->users->count().'人 </p>';
     }
     if($two_part){
       $html[] = '<p class="day_part m-0 pt-1"><a href="'.route('calendar.admin.detail', [
     'date' => $ymd,
     'part' => 2
-]).'">2部</p>';
+]).'">2部 '.$two_part->users->count().'人 </p>';
     }
     if($three_part){
       $html[] = '<p class="day_part m-0 pt-1"><a href="'.route('calendar.admin.detail', [
     'date' => $ymd,
     'part' => 3
-]).'">3部</p>';
+]).'">3部 '.$three_part->users->count().'人 </p>';
     }
     $html[] = '</div>';
 
