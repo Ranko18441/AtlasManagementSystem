@@ -75,7 +75,8 @@
         </select>
       </div>
       <div class="">
-        <p class="m-0 search_conditions"><span>検索条件の追加</span></p>
+        <p class="m-0 search_conditions"><span>検索条件の追加</span>
+      <span class="arrow">▼</span></p>
         <div class="search_conditions_inner">
           <div>
             <label>性別</label>
@@ -93,17 +94,22 @@
               <option value="4" class="">生徒</option>
             </select>
           </div>
-          <div class="selected_engineer">
-            <label>選択科目</label>
-            <select name="subject_id">
-              <option selected disabled>----</option>
-              @foreach($subjects as $subject)
-              <option value="{{ $subject->id }}">
-                {{ $subject->subject }}
-              </option>
-              @endforeach
-            </select>
-          </div>
+         <div class="selected_engineer">
+          <label>選択科目</label>
+          @foreach($subjects as $subject)
+        <div>
+            <input
+                type="checkbox"
+                name="subject_id[]"
+                value="{{ $subject->id }}"
+                form="userSearchRequest"
+            >
+            <label>{{ $subject->subject }}</label>
+        </div>
+        @endforeach
+      </div>
+
+          
         </div>
       </div>
       <div>
