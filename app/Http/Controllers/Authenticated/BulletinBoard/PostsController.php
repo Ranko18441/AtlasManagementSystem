@@ -16,6 +16,7 @@ use App\Http\Requests\BulletinBoard\CommentFormRequest;
 use App\Http\Requests\SubCategoryRequest;
 use App\Http\Requests\MainCategoryRequest;
 
+
 class PostsController extends Controller
 {
     public function show(Request $request){
@@ -57,6 +58,10 @@ class PostsController extends Controller
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
+
+         // 投稿とサブカテゴリーを紐付ける//
+        $post->subCategories()->attach($request->post_category_id);
+
         return redirect()->route('post.show');
     }
 
