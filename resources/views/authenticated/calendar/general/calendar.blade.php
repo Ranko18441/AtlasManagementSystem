@@ -13,4 +13,21 @@
     </div>
   </div>
 </div>
+
+<div class="js-reserve-modal">
+    <div class="js-reserve-modal__bg">
+      <div class="js-reserve-modal__content">
+    <h2>キャンセル確認</h2>
+    <p>予約日：<span class="reserve-date"></span></p>
+    <p>予約時間：</p>
+    <button type="button" class="js-reserve-modal-close">閉じる</button>
+    </div>
+    </div>
+  </div>
+
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="{{ asset('js/calendar.js') }}" rel="stylesheet"></script>
+  
 </x-sidebar>

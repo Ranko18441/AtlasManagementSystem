@@ -3,6 +3,5 @@
   <div class="w-100">
     <p>{{ $calendar->getTitle() }}</p>
     <p>{!! $calendar->render() !!}</p>
-  </div>
-</div>
+
 </x-sidebar>
