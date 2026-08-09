@@ -9,8 +9,10 @@ $(function(){
     // alert('テスト')
 
     var reserve_date = $(this).val();
+    var reserve_time = $(this).text();
 
     $('.reserve-date').text(reserve_date);
+    $('.reserve-time').text(reserve_time);
 
     return false;
 });

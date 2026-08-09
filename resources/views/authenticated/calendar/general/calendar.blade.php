@@ -19,8 +19,9 @@
       <div class="js-reserve-modal__content">
     <h2>キャンセル確認</h2>
     <p>予約日：<span class="reserve-date"></span></p>
-    <p>予約時間：</p>
+    <p>予約時間：<span class="reserve-time"></span></p>
     <button type="button" class="js-reserve-modal-close">閉じる</button>
+    <button type="button" class="">キャンセル</button>
     </div>
     </div>
   </div>
