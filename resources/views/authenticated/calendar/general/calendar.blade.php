@@ -21,7 +21,12 @@
     <p>予約日：<span class="reserve-date"></span></p>
     <p>予約時間：<span class="reserve-time"></span></p>
     <button type="button" class="js-reserve-modal-close">閉じる</button>
-    <button type="button" class="">キャンセル</button>
+    <form action="{{ route('deleteParts') }}" method="POST">
+      @csrf
+       <input type="hidden" name="reserve_date" class="reserve-date" >
+       <input type="hidden" name="reserve_time" class="reserve-time" >
+      <button type="submit">キャンセルする</button>
+    </form>
     </div>
     </div>
   </div>

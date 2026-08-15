@@ -35,4 +35,33 @@ class CalendarController extends Controller
         }
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
+
+    // 下記にキャンセルための記述を記載した
+    public function delete(Request $request)
+{
+    $reserve_date = $request->reserve_date;
+    $reserve_time = $request->reserve_time;
+
+    // リモ1部がきたときに1にするという処理をしている。
+       if($reserve_time == "リモ1部"){
+            $reserve_time = 1;
+          }else if($reserve_time == "リモ2部"){
+            $reserve_time = 2;
+          }else if($reserve_time == "リモ3部"){
+            $reserve_time = 3;
+          }
+
+    $reserveSetting = ReserveSettings::where('setting_reserve', $reserve_date)
+    ->where('setting_part', $reserve_time)
+    ->first ();
+
+    $reserveSetting->increment('limit_users'); 
+    // // ここで「現在ログインしているユーザーと予約枠の紐付け」を削除
+ $reserveSetting->users()->detach(Auth::id());
+
+return redirect('/calendar/user_id')
+->with('flash_message', '予約をキャンセルしました。');
+     }
+
+
 }
