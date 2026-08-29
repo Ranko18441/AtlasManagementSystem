@@ -52,6 +52,7 @@ class CalendarView{
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
     // 過去日 
         if(in_array($day->everyDay(), $day->authReserveDay())){
+          // authReserveDay(の中に今見ている日$day->everyDayがあるかを見ている
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
           if($reservePart == 1){
             $reservePart = "リモ1部";
@@ -64,6 +65,7 @@ class CalendarView{
           $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'
                 . $reservePart .
                 '</p>';
+                
                  }else{
         // 過去日に予約していなかった場合
 
@@ -71,6 +73,8 @@ class CalendarView{
                 . '受付終了' .
                 '</p>';
     }
+
+    $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
 
     }else{
     // 今日より後
@@ -89,6 +93,8 @@ class CalendarView{
         }
 
         $html[] = '<button type="button" class="btn btn-danger p-0 w-75 reserve-modal-btn" style="font-size:12px" value="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '">' . $reservePart . '</button>';
+
+        $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
 
     }else{
         // まだ予約していない
