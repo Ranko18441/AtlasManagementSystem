@@ -1,19 +1,10 @@
 $(function () {
-  $('.search_conditions').click(function () {
-    $('.search_conditions_inner').slideToggle();
+    $('.user_search_conditions > p').click(function () {
 
-     let arrow = $(this).find('.arrow');
+        $('.user_search_conditions_inner').slideToggle();
 
-    if (arrow.text() == '▼') {
-      arrow.text('▲');
-    } else {
-      arrow.text('▼');
-    }
+        // 矢印の向きを切り替える
+        $(this).find('.user_search_arrow').toggleClass('open');
 
-  });
-
-  $('.subject_edit_btn').click(function () {
-    $('.subject_inner').slideToggle();
-    
-  });
+    });
 });

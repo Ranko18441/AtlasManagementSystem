@@ -1,8 +1,13 @@
 $(function () {
-  $('.main_categories').click(function () {
-    var category_id = $(this).attr('category_id');
-    $('.category_num' + category_id).slideToggle();
-  });
+    $('.main_categories').click(function () {
+        var category_id = $(this).attr('category_id');
+
+        $('.category_num' + category_id).slideToggle();
+        // category_arrowの上向きをする
+            // 矢印の向きを切り替える
+        $(this).find('.category_arrow').toggleClass('open');
+
+    });
 
   $(document).on('click', '.like_btn', function (e) {
     e.preventDefault();

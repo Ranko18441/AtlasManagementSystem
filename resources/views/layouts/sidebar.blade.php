@@ -20,17 +20,37 @@
     <body class="all_content">
         <div class="d-flex">
             <div class="sidebar">
-                <p><a href="{{ route('top.show') }}">トップ</a></p>
-                <p><a href="/logout">ログアウト</a></p>
-                <p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
-                <!-- スクール枠登録下記を見えなくする　if分で記載する -->
-                @if (in_array (auth()->user()->role, [1, 2, 3]))
-                <p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
-                <p><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
-                @endif
+                <div class="sidebar-item">    
+                <img class="each-icon" src="{{ asset('image/homeicon.svg') }}" width="30" height="30"><p><a href="{{ route('top.show') }}">マイページ</a></p>
+                </div>
 
-                <p><a href="{{ route('post.show') }}">掲示板</a></p>
-                <p><a href="{{ route('user.show') }}">ユーザー検索</a></p>
+                <div class="sidebar-item">
+                <img class="each-icon" src="{{ asset('image/logouticon.svg') }}" width="30" height="30"><p><a href="/logout">ログアウト</a></p>
+                </div>
+
+                <div class="sidebar-item">
+                <img class="each-icon" src="{{ asset('image/reservicon.svg') }}" width="30" height="30"><p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
+                </div>
+                <!-- スクール枠登録下記を見えなくする　if分で記載する -->
+                 
+                @if (in_array (auth()->user()->role, [1, 2, 3]))
+                <div class="sidebar-item">
+                <img class="each-icon" src="{{ asset('image/reservconfirmicon.svg') }}" width="30" height="30"><p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
+                </div>
+
+                <div class="sidebar-item">
+                <img class="each-icon" src="{{ asset('image/studyframeicon.svg') }}" width="30" height="30"><p><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
+                </div>
+                @endif
+                
+                <div class="sidebar-item">
+                <img class="each-icon" src="{{ asset('image/chaticon.svg') }}" width="30" height="30"><p><a href="{{ route('post.show') }}">掲示板</a></p>
+                </div>
+
+                <div class="sidebar-item">
+                <img class="each-icon" src="{{ asset('image/usersicon.svg') }}" width="30" height="30"><p><a href="{{ route('user.show') }}">ユーザー検索</a></p>
+                </div>
+                
             </div>
             <div class="main-container">
                 {{ $slot }}

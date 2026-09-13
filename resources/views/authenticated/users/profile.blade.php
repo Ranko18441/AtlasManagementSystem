@@ -14,16 +14,19 @@
       </div>
       <div class="">
         @can('admin')
-        <span class="subject_edit_btn">選択科目の編集</span>
-        <div class="subject_inner">
+     <span class="profile_subject_edit_btn">選択科目の登録 <span class="profile_subject_arrow"></span></span>
+        <div class="profile_subject_inner">
           <form action="{{ route('user.edit') }}" method="post">
+            <div class="subject_list">
             @foreach($subject_lists as $subject_list)
-            <div>
-              <label>{{ $subject_list->subject }}</label>
-              <input type="checkbox" name="subjects[]" value="{{ $subject_list->id }}">
-            </div>
+            <label class="subject_item">
+               {{ $subject_list->subject }}
+               <input type="checkbox" name="subjects[]" value="{{ $subject_list->id }}">
+      </label>
             @endforeach
-            <input type="submit" value="編集" class="btn btn-primary">
+            </div>
+            
+            <input type="submit" value="登録" class="btn btn-primary">
             <input type="hidden" name="user_id" value="{{ $user->id }}">
             {{ csrf_field() }}
           </form>
@@ -35,3 +38,8 @@
 </div>
 
 </x-sidebar>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/register.js') }}"></script>
+
+

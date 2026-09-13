@@ -1,10 +1,27 @@
+
+// 下記が選択科目の矢印の開くときのJS
 $(function () {
-  $(document).on('click', '.other_role', function () {
-    $('.select_teacher').removeClass('d-none');
-  });
-  $(document).on('click', '.admin_role', function () {
-    $('.select_teacher').addClass('d-none');
-  });
+
+    // 権限による表示切り替え
+    $(document).on('click', '.other_role', function () {
+        $('.select_teacher').removeClass('d-none');
+    });
+
+    $(document).on('click', '.admin_role', function () {
+        $('.select_teacher').addClass('d-none');
+    });
+
+    // ↓ここから追加 選択科目の開閉
+// 選択科目の開閉
+    $(document).on('click', '.profile_subject_edit_btn', function () {
+
+  $('.profile_subject_inner').slideToggle();
+
+    $(this).find('.profile_subject_arrow').toggleClass('open');
+});
+
+
+});
 
   $(document).on('click keyup change', function () {
     var over_name = $('.over_name').val().length;
@@ -98,4 +115,4 @@ $(function () {
     }
   });
 
-})
+

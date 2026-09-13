@@ -16,12 +16,25 @@ li {
   list-style: none;
 }
 
+/* アトラスの画像について */
+.atlas-png {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: -90px;
+}
+
 /* サイドバー */
 .sidebar {
-  width: 150px;
+  width: 180px;
   height: 100vh;
+  min-height: 110vh;
   background-color: #03AAD2;
   font-weight: bold;
+  
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
 }
 
 .main-container {
@@ -29,6 +42,27 @@ li {
 }
 
 .sidebar p a {
+  color: #FFF;
+}
+
+.each-icon {
+  filter: brightness(0) invert(1);
+  height: 40px;
+  /* heightを記載したのは感覚をあけるため */
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.sidebar-item p {
+  margin: 0;
+  margin-left: 5px;
+}
+
+.sidebar-item a {
   color: #FFF;
 }
 
@@ -106,10 +140,7 @@ li {
   width: 60%;
 }
 
-/* 掲示板 */
-.sub_categories {
-  display: none;
-}
+
 
 .post_create_area {
   background: #FFF;
@@ -172,7 +203,26 @@ li {
 }
 
 .edit-modal-open {
-  cursor: pointer;
+    display: inline-block;
+    background-color: #007BFF;
+    color: #FFF;
+    padding: 7px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* 削除ボタン */
+.delete-modal-open {
+    display: inline-block;
+    background-color: #E2254D;
+    color: #FFF;
+    padding: 7px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 5px;
 }
 
 .modal-inner-body textarea {
@@ -222,6 +272,7 @@ li {
   color: #FFF;
 }
 
+/* 下記がいいねした投稿と自分の投稿のところのボタン */
 .category_btn {
   font-size: 12px;
   border-radius: 5px;
@@ -229,12 +280,131 @@ li {
   border: none;
   background: #999;
   color: #FFF;
+  height: 28px;
+  margin-bottom: 15px;
+}
+
+.like_btntext{
+  background: #E38EAB;
+  width: 48%;
+  
+}
+
+.my_post_btn {
+  background: #EBBC5D;
+  width: 48%;
+}
+
+/* 下記はキーワードを検索のところのcss */
+.Keywordbox{
+  margin-bottom: 15px;
+  border-radius: 10px;
+  display: flex;
+    width: 100%;
+    height: 35px;
+}
+
+/* キーワード入力欄 */
+.Keywordbox input[type="text"] {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 10px 0 0 10px;
+    padding: 0 10px;
+    font-size: 16px;
+    background-color: #ECF1F6;
+    
+}
+
+/* 検索ボタン */
+.Keywordbox input[type="submit"] {
+    width: 100px;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    background-color: #04A9D2;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .main_categories span,
 .sub_categories li input {
   list-style: none;
   cursor: pointer;
+}
+
+/* カテゴリー全体 */
+.category_area {
+    background: #FFF;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.main_categories {
+ position: relative;
+ border-bottom: 1px solid #aaa;
+ padding: 8px 10px;
+ font-size: 15px;
+ cursor: pointer;
+}
+
+.category_name {
+    display: block;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #aaa;
+}
+
+/* サブカテゴリー */
+.sub_categories {
+    display: none;
+    padding: 0 10px;
+}
+
+/* サブカテゴリー1つ1つの線 */
+.sub_categories li {
+    border-bottom: 1px solid #aaa;
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+/* 下記はメインカテゴリーとかの下の矢印ボタン */
+.category_arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+
+    width: 8px;
+    height: 8px;
+
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.2s;
+}
+
+/* 開いたときは上向き */
+.category_arrow.open {
+    transform: translateY(-30%) rotate(225deg);
+}
+
+
+
+
+/* 投稿一覧のキーワードを検索らへんのところのcss */
+.Postbox{
+    background: #04A9D2;
+    border-radius: 5px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* 投稿の文字を白くするためのcss */
+.Postbox a {
+  color: #FFF;
+  text-decoration: none;
 }
 
 /* ユーザー検索 */
@@ -259,6 +429,204 @@ li {
   height: 250px;
 }
 
+.search_area {
+  width: 250px;
+  flex-shrink: 0;
+
+  padding: 20px 15px;
+
+  background-color: #ECF1F6;
+  border: none !important;
+}
+
+
+/* 検索タイトル */
+.search_title {
+  margin-bottom: 12px;
+}
+
+.search_title p {
+  font-size: 16px;
+  margin: 0;
+}
+
+
+/* 各検索項目 */
+.search_item {
+  margin-bottom: 12px;
+}
+
+.search_item label {
+  display: block;
+  margin-bottom: 5px;
+
+  font-size: 13px;
+  color: #555;
+}
+
+
+/* キーワード */
+.free_word {
+  width: 100%;
+  height: 35px;
+
+  padding: 0 10px;
+
+  border: none;
+  border-radius: 7px;
+
+  background-color: #E1E6EB;
+
+  font-size: 13px;
+}
+
+
+/* セレクトボックス */
+.search_item select {
+  width: 80px;
+  height: 30px;
+
+  padding: 0 8px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: #E1E6EB;
+
+  font-size: 12px;
+}
+
+/* 検索条件 */
+.search_conditions {
+  margin-top: 10px;
+
+  border: 1px solid #AAA;
+  background-color: #FFF;
+}
+
+
+/* 検索条件のタイトル */
+.search_conditions > p {
+  position: relative;
+
+  margin: 0;
+  padding: 5px 8px;
+
+  border-bottom: 1px solid #AAA;
+
+  font-size: 11px;
+  color: #555;
+
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* 性別・権限・選択科目 */
+.condition_item {
+  margin-bottom: 12px;
+}
+
+.condition_item > label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 11px;
+  color: #555;
+}
+
+
+/* ラジオボタン */
+.condition_item input[type="radio"] {
+  margin-right: 2px;
+}
+
+
+/* 性別のlabel */
+.condition_item > div label {
+  display: inline-block;
+
+  font-size: 11px;
+}
+
+
+/* 権限 */
+.condition_item select {
+  width: 90px;
+  height: 28px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: #E1E6EB;
+
+  font-size: 11px;
+}
+
+
+/* 選択科目 */
+.subject_checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.subject_checkboxes label {
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 11px;
+}
+
+
+/* ボタン */
+.search_buttons {
+  margin-top: 15px;
+}
+
+
+/* 検索ボタン */
+.search_buttons input[type="submit"] {
+  width: 100%;
+  height: 40px;
+
+  border: none;
+  border-radius: 7px;
+
+  background-color: #04A9D2;
+
+  color: #FFF;
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+
+/* リセット */
+.search_buttons input[type="reset"] {
+  display: block;
+
+  margin: 12px auto 0;
+
+  border: none;
+  background: none;
+
+  color: #04A9D2;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+
+
+
+
+/* 検索のところのcss */
 .search_conditions span {
   cursor: pointer;
 }
@@ -268,7 +636,9 @@ li {
   background: #FFF;
 }
 
-.subject_edit_btn {
+
+/* 選択科目の編集のボタンのところ */
+.profile_subject_edit_btn {
   font-size: 12px;
   color: #0000FF;
   cursor: pointer;
@@ -303,4 +673,149 @@ li {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 60%;
+}
+
+
+/* 下記は予約詳細画面のcss */
+
+.reserve_list {
+  width: 100%;
+  background: #FFF;
+  border: 8px solid #FFF;
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.reserve_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ID・名前・場所の部分だけ青 */
+.reserve_table th {
+  background-color: #03AAD2;
+  color: #FFF;
+}
+
+/* th、td */
+.reserve_table th,
+.reserve_table td {
+  padding: 8px 10px;
+  text-align: center;
+  
+
+}
+
+/* 偶数行を薄い水色にする */
+.reserve_table tbody tr:nth-child(even) {
+  background-color: #E5F5F9;
+
+}
+
+/* 奇数行 */
+.reserve_table tbody tr:nth-child(odd) {
+  background-color: #FFF;
+}
+
+/* 選択科目と登録ボタンを横並びにする */
+.profile_subject_inner form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile_subject_inner .subject_list  {
+  display: flex;
+  gap: 15px;
+}
+
+.profile_subject_inner .subject_item {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* ユーザー検索：検索条件 */
+.user_search_conditions {
+  margin-top: 10px;
+  border: 1px solid #AAA;
+  background-color: #FFF;
+}
+
+
+/* 検索条件のタイトル */
+.user_search_conditions > p {
+  position: relative;
+
+  margin: 0;
+  padding: 5px 8px;
+
+  border-bottom: 1px solid #AAA;
+
+  font-size: 11px;
+  color: #555;
+
+  cursor: pointer;
+}
+
+
+/* ユーザー検索の矢印 */
+.user_search_arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+
+  width: 8px;
+  height: 8px;
+
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
+
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s;
+}
+
+
+/* 開いたときは上向き */
+.user_search_arrow.open {
+  transform: translateY(-30%) rotate(225deg);
+}
+
+
+/* 条件の中 */
+.user_search_conditions_inner {
+  display: none;
+  padding: 10px;
+}
+
+
+/* 選択科目の編集の隣にある矢印 */
+.profile_subject_btn {
+  color: #00a0d2;
+  cursor: pointer;
+}
+
+/* 矢印 */
+.profile_subject_arrow {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #00a0d2;
+  border-bottom: 2px solid #00a0d2;
+  transform: translateY(-30%) rotate(45deg);
+  transition: transform 0.2s;
+}
+
+/* 開いたときは上向き */
+.profile_subject_arrow.open {
+  transform: translateY(-30%) rotate(225deg);
+}
+
+
+/* 選択科目の中 */
+.profile_subject_inner {
+  display: none;
+  padding: 10px;
 }
