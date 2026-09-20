@@ -341,7 +341,6 @@ li {
 
 .main_categories {
  position: relative;
- border-bottom: 1px solid #aaa;
  padding: 8px 10px;
  font-size: 15px;
  cursor: pointer;
@@ -353,6 +352,19 @@ li {
     border-bottom: 1px solid #aaa;
 }
 
+/* 投稿のほうにあるサブカテゴリーのボックスのような奴 */
+.post_sub_categories {
+    margin-top: 10px;
+}
+
+.post_sub_categories span {
+    display: inline-block;
+    background-color: #04A9D2;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+}
 /* サブカテゴリー */
 .sub_categories {
     display: none;
@@ -416,8 +428,8 @@ li {
   height: 80vh;
   overflow: scroll;
   padding: 10px;
-  background: #FFF;
   border-radius: 5px;
+  gap: 10px;
 }
 
 .reserve_users_area span {
@@ -425,9 +437,13 @@ li {
 }
 
 .one_person {
-  width: 250px;
+  width: calc(25% - 8px);
   height: 250px;
+  background: #FFF;
+  padding: 10px;
 }
+
+
 
 .search_area {
   width: 250px;
@@ -435,7 +451,7 @@ li {
 
   padding: 20px 15px;
 
-  background-color: #ECF1F6;
+  
   border: none !important;
 }
 
@@ -740,8 +756,7 @@ li {
 /* ユーザー検索：検索条件 */
 .user_search_conditions {
   margin-top: 10px;
-  border: 1px solid #AAA;
-  background-color: #FFF;
+  background-color: #ECF1F6;
 }
 
 
@@ -788,6 +803,7 @@ li {
 .user_search_conditions_inner {
   display: none;
   padding: 10px;
+  background-color: #ECF1F6;
 }
 
 

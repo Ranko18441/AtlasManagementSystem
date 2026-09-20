@@ -6,12 +6,21 @@
     <div class="post_area border w-75 m-auto p-3">
       <p><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
       <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
+
+      <!-- 投稿の下にサブカテゴリーを表示させるもの -->
+      <div class="post_sub_categories">
+    @foreach($post->subCategories as $subCategory)
+        <span>{{ $subCategory->sub_category }}</span>
+    @endforeach
+</div>
+
+      
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status ml-auto">
           <div class="mr-5">
             <i class="fa fa-comment" post_id="{{ $post->id }}"></i><span class="postComments{{ $post->id }}">{{ $post->post_comments_count }}</span>
           </div>
-          <div>
+          <div class="ml-4">
             @if(Auth::user()->is_Like($post->id))
             <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}"> {{ $post->likes_count }}</span></p>
             @else
@@ -20,6 +29,8 @@
           </div>
         </div>
       </div>
+
+
     </div>
     @endforeach
   </div>
