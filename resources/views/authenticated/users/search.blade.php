@@ -41,17 +41,15 @@
         <span>権限 : </span><span>生徒</span>
         @endif
       </div>
-      <div>
-        @if($user->role == 4)
+  <div>
+    @if($user->role == 4)
         <span>選択科目 :</span>
-        @endif
-      </div>
-      <!-- 下記に選択科目の表示のコードを記載済み -->
-       <div>
+
         @foreach($user->subjects as $subject)
-        <span>{{ $subject->subject }}</span>
+            <span>{{ $subject->subject }}</span>
         @endforeach
-      </div>
+    @endif
+</div>
     </div>
     @endforeach
   </div>

@@ -339,11 +339,15 @@ li {
     padding: 10px;
 }
 
+/* メインとサブカテゴリーのあけたときの矢印を固定するためのもの */
+.category_header {
+    position: relative;
+}
+
 .main_categories {
- position: relative;
- padding: 8px 10px;
- font-size: 15px;
- cursor: pointer;
+    padding: 8px 10px;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 .category_name {
@@ -396,7 +400,7 @@ li {
 
 /* 開いたときは上向き */
 .category_arrow.open {
-    transform: translateY(-30%) rotate(225deg);
+    transform: translateY(-70%) rotate(225deg);
 }
 
 
@@ -419,30 +423,50 @@ li {
   text-decoration: none;
 }
 
+/* ユーザー検索全体 */
+.search_content {
+  display: flex;
+  align-items: flex-start;
+}
+
 /* ユーザー検索 */
 .reserve_users_area {
   display: flex;
   flex-wrap: wrap;
-  width: 1058px;
-  margin: 10px auto;
+  width: calc(100% - 250px);
   height: 80vh;
   overflow: scroll;
   padding: 10px;
-  border-radius: 5px;
-  gap: 10px;
+  gap: 16px;
+  margin: 10px 0;
 }
 
 .reserve_users_area span {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .one_person {
-  width: calc(25% - 8px);
-  height: 250px;
-  background: #FFF;
-  padding: 10px;
+ width: calc(25% - 12px);
+  min-height: 154px;
+  height: auto;
+  background: #fff;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* 各行の間隔 */
+.one_person > div {
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+/* 名前リンク */
+.one_person a {
+  color: #0088cc;
+  text-decoration: none;
+}
 
 
 .search_area {
@@ -689,8 +713,44 @@ li {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 60%;
+  border-radius: 10px;
 }
 
+/* 9/25カレンダーの予約キャンセルのレイアウト */
+.js-reserve-modal__content h2 {
+  margin-bottom: 20px;
+}
+
+/* 予約日・予約時間 */
+.js-reserve-modal__content p {
+  margin-bottom: 15px;
+}
+
+/* 閉じる・キャンセルするボタン */
+.reserve-modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+/* ボタン */
+.reserve-modal-buttons button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 閉じる */
+.reserve-modal-buttons .js-reserve-modal-close {
+  background: #999;
+  color: #FFF;
+}
+
+/* キャンセルする */
+.reserve-modal-buttons form button {
+  background: #E2254D;
+  color: #FFF;
+}
 
 /* 下記は予約詳細画面のcss */
 
@@ -834,4 +894,9 @@ li {
 .profile_subject_inner {
   display: none;
   padding: 10px;
+}
+
+/* 投稿のコメント時のエラー */
+.toukou_error{
+  color: red;
 }

@@ -49,11 +49,12 @@
         {{-- メインカテゴリー --}}
         <li class="main_categories" category_id="{{ $category->id }}">
 
+        <div class="category_header">
           <span class="category_name">
             {{ $category->main_category }}
             </span>
-
             <span class="category_arrow"></span>
+        </div>
             {{-- サブカテゴリー --}}
             <ul class="sub_categories category_num{{ $category->id }}">
               @foreach($category->subCategories as $subCategory)
