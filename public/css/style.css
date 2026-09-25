@@ -900,3 +900,18 @@ li {
 .toukou_error{
   color: red;
 }
+
+
+/* 新規登録画面のバリデーションエラー */
+.register-error {
+  color: red;
+  font-size: 10px;
+}
+
+/* 新規登録の白いカード */
+.register-card {
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+}
+
