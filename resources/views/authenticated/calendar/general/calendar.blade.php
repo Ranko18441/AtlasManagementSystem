@@ -17,9 +17,10 @@
 <div class="js-reserve-modal">
     <div class="js-reserve-modal__bg">
     <div class="js-reserve-modal__content">
-    <h2>キャンセル確認</h2>
+    <!-- <h2>キャンセル確認</h2> -->
     <p>予約日：<span class="reserve-date"></span></p>
-    <p>予約時間：<span class="reserve-time"></span></p>
+    <p>時間：<span class="reserve-time"></span></p>
+    <p>上記の予約をキャンセルしてもよろしいですか？</p>
 
     <div class="reserve-modal-buttons">
     <button type="button" class="js-reserve-modal-close">閉じる</button>
@@ -27,7 +28,7 @@
       @csrf
        <input type="hidden" name="reserve_date" class="reserve-date" >
        <input type="hidden" name="reserve_time" class="reserve-time" >
-      <button type="submit">キャンセルする</button>
+      <button type="submit">キャンセル</button>
     </form>
     </div>
     

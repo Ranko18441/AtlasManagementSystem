@@ -691,15 +691,15 @@ li {
 
 /* 予約をキャンセルするためのモーダル */
 .js-reserve-modal {
-  display: none; 
+  display: none;
   height: 100vh;
   position: fixed;
   top: 0;
   width: 100%;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .js-reserve-modal__bg {
-  background: rgba(0, 0, 0, 0.8);
   height: 100vh;
   position: absolute;
   width: 100%;
@@ -707,50 +707,64 @@ li {
 
 .js-reserve-modal__content {
   background: #fff;
-  left: 50%;
-  padding: 40px;
   position: absolute;
+  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  /* モーダルを少し小さくする */
   width: 60%;
-  border-radius: 10px;
+   /* 中の文字の左端をそろえるための余白 */
+  padding: 34px;
+  /* 中身全体を中央寄りにする */
+  padding-left: 13%;
 }
+
 
 /* 9/25カレンダーの予約キャンセルのレイアウト */
 .js-reserve-modal__content h2 {
-  margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 
 /* 予約日・予約時間 */
 .js-reserve-modal__content p {
-  margin-bottom: 15px;
+margin-bottom: 15px;
 }
 
-/* 閉じる・キャンセルするボタン */
+/* ボタンを横並び */
 .reserve-modal-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 25px;
+  align-items: center;
+  /* 閉じるとキャンセルの間隔 */
+  gap: 340px;
 }
-/* ボタン */
-.reserve-modal-buttons button {
-  padding: 8px 20px;
+
+/* 閉じるボタン */
+.js-reserve-modal-close {
+  background-color: #007BFF;
+  color: #fff;
   border: none;
   border-radius: 5px;
+  padding: 3px 15px;
   cursor: pointer;
 }
 
-/* 閉じる */
-.reserve-modal-buttons .js-reserve-modal-close {
-  background: #999;
-  color: #FFF;
+/* キャンセルするボタン */
+.reserve-modal-buttons form {
+  margin: 0;
 }
 
-/* キャンセルする */
+
+/* キャンセルするボタン */
 .reserve-modal-buttons form button {
-  background: #E2254D;
-  color: #FFF;
+  background-color: #E2254D;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 18px;
+  cursor: pointer;
 }
+
 
 /* 下記は予約詳細画面のcss */
 
