@@ -429,32 +429,52 @@ li {
   align-items: flex-start;
 }
 
-/* ユーザー検索 */
+/* ユーザー一覧 */
 .reserve_users_area {
   display: flex;
   flex-wrap: wrap;
+
+  /* カードを縦方向に引き伸ばさない */
+  align-items: flex-start;
+
+  /* 行も上から詰める */
+  align-content: flex-start;
+
   width: calc(100% - 250px);
+
   height: 80vh;
-  overflow: scroll;
-  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+   /* 左側の余白を少し増やす */
+  padding: 10px 29px 10px 40px;
   gap: 16px;
+
   margin: 10px 0;
 }
+
 
 .reserve_users_area span {
   font-size: 10px;
 }
 
+/* ユーザーカード */
 .one_person {
- width: calc(25% - 12px);
-  min-height: 154px;
-  height: auto;
+  width: calc(25% - 12px);
+
+  /* ★ カードの高さを固定 */
+  height: 265px;
   background: #fff;
   padding: 10px 12px;
+
   border: 1px solid #ddd;
   border-radius: 10px;
+
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  /* 念のため */
+  flex-shrink: 0;
 }
+
 
 /* 各行の間隔 */
 .one_person > div {
