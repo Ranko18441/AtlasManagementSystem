@@ -186,6 +186,8 @@ li {
   font-size: 12px;
   color: #999;
   font-weight: bold;
+  margin-top: 3px;
+  margin-bottom: 5px;
 }
 
 .detsail_post_title {
@@ -357,8 +359,9 @@ li {
 }
 
 /* 投稿のほうにあるサブカテゴリーのボックスのような奴 */
-.post_sub_categories {
-    margin-top: 10px;
+.post_sub_categories { 
+    margin-top: -22px;
+    margin-bottom: 6px;
 }
 
 .post_sub_categories span {
@@ -949,3 +952,22 @@ margin-bottom: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
 }
 
+/* 掲示板 詳細画面のバリデーションエラー */
+/* 掲示板 詳細画面のバリデーションエラー */
+.validation-error {
+    position: absolute;
+    color: red;
+    font-size: 14px;
+    left: 16px;
+}
+
+/* タイトルのエラー */
+.title-error {
+    top: 2px;
+}
+
+
+.detail_container {
+    position: relative;
+    background: #FFF;
+}
